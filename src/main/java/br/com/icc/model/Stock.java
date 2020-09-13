@@ -27,6 +27,16 @@ public class Stock implements Serializable {
 	@ElementCollection
 	private Map<LocalDate, Double> quotes;
 	
+	public Stock(
+			@NotNull(message = "Stock Id may not be null") 
+			@NotEmpty(message = "Stock Id may not be empty") 
+			@NotBlank(message = "Stock Id may not be blank") String id,
+			Map<LocalDate, Double> quotes) {
+		super();
+		this.id = id;
+		this.quotes = quotes;
+	}
+
 	public String getId() {
 		return id;
 	}
