@@ -2,6 +2,8 @@ package br.com.icc.service;
 
 import java.util.HashMap;
 
+import org.springframework.data.util.Pair;
+
 import br.com.icc.model.HostPort;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -15,7 +17,7 @@ public interface StockManagerService {
     
     @Headers("Content-Type: application/json")
     @POST("notification")
-    void subscribe(@Body HostPort hostPort);
+    Call<Pair<String,Integer>> subscribe(@Body HostPort hostPort);
 
 }
 

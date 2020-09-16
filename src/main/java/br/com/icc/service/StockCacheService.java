@@ -35,8 +35,7 @@ public class StockCacheService {
 	}
 	
 	public void fillCache() {
-		Call<HashMap<String,String>> call = service.getStocks();
-        
+		
 		Gson gson = new GsonBuilder()
                 .setDateFormat("E, d MMM yyyy HH:mm:ss Z")
                 .create();
@@ -47,7 +46,8 @@ public class StockCacheService {
                 .build();
 
         service = retrofit.create(StockManagerService.class);
-		
+        
+		Call<HashMap<String,String>> call = service.getStocks();
 		
         call.enqueue(new Callback<HashMap<String,String>>() {
             @Override
